@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="result-container">
+    {% if rsa_keys %}
+        <h2>Generated RSA Keys</h2>
+        <p><strong>Private Key:</strong></p>
+        <textarea readonly rows="10" cols="80">{{ rsa_keys.private_key }}</textarea>
+        <p><strong>Public Key:</strong></p>
+        <textarea readonly rows="10" cols="80">{{ rsa_keys.public_key }}</textarea>
+    {% else %}
+        <h2>{{ operation|capitalize }}ed Text</h2>
+        <p>{{ result }}</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}">Back</a>
+</div>
+{% endblock %}
